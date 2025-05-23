@@ -101,11 +101,40 @@ _p4_with.png_
 
 ---
 
-```sql
+##### Створення функції:
 
+```sql
+DROP FUNCTION IF EXISTS lection_them3.Division;
+
+DELIMITER //
+CREATE FUNCTION Division(a FLOAT, b FLOAT)
+RETURNS FLOAT
+DETERMINISTIC
+NO SQL
+BEGIN
+	DECLARE result FLOAT;
+    SET result = a / b;
+    RETURN result;
+END //
+DELIMITER ;
 ```
 
-_p1_create_schema.png_
-![p1_create_schema.png](./p1_create_schema.png)
+_p5_create_function.png_
+![p5_create_function.png](./p5_create_function.png)
+
+---
+
+##### Використання функції:
+
+```sql
+SELECT
+    *,
+    Division(quantity, 2.3) AS quantity_divided
+FROM
+    order_details;
+```
+
+_p5_using_function.png_
+![p5_using_function.png](./p5_using_function.png)
 
 ---
