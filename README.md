@@ -33,11 +33,17 @@ _p1_nested_select.png_
 ---
 
 ```sql
-
+SELECT *
+FROM order_details
+WHERE order_id IN (
+    SELECT id
+    FROM orders
+    WHERE shipper_id = 3
+);
 ```
 
-_p1_create_schema.png_
-![p1_create_schema.png](./p1_create_schema.png)
+_p2_nested_where.png_
+![p2_nested_where.png](./p2_nested_where.png)
 
 ---
 
