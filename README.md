@@ -77,11 +77,20 @@ _p3_nested_from.png_
 ---
 
 ```sql
-
+WITH temp AS (
+    SELECT *
+    FROM order_details
+    WHERE quantity > 10
+)
+SELECT
+    temp.order_id,
+    AVG(temp.quantity) AS avg_quantity
+FROM temp
+GROUP BY temp.order_id;
 ```
 
-_p1_create_schema.png_
-![p1_create_schema.png](./p1_create_schema.png)
+_p4_with.png_
+![p4_with.png](./p4_with.png)
 
 ---
 
