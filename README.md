@@ -54,11 +54,19 @@ _p2_nested_where.png_
 ---
 
 ```sql
-
+SELECT
+    filtered.order_id,
+    AVG(filtered.quantity) AS avg_quantity
+FROM (
+    SELECT *
+    FROM order_details
+    WHERE quantity > 10
+) AS filtered
+GROUP BY filtered.order_id;
 ```
 
-_p1_create_schema.png_
-![p1_create_schema.png](./p1_create_schema.png)
+_p3_nested_from.png_
+![p3_nested_from.png](./p3_nested_from.png)
 
 ---
 
