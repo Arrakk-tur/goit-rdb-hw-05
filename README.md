@@ -9,11 +9,20 @@
 ---
 
 ```sql
-
+SELECT
+    *,
+    (SELECT
+            customer_id
+        FROM
+            orders
+        WHERE
+            id = od.order_id) as customer_id
+FROM
+    order_details od;
 ```
 
-_p1_create_schema.png_
-![p1_create_schema.png](./p1_create_schema.png)
+_p1_nested_select.png_
+![p1_nested_select.png](./p1_nested_select.png)
 
 ---
 
